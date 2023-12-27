@@ -1,11 +1,42 @@
 import '../styles/home.css';
-import React from 'react';
+import React, { useEffect } from 'react';
+import {addSurveyList} from '../actions/surveyActionCreator';
+import {loadSurveyList} from '../api/index';
+import {SurveyList,SurveyForm} from '../components/index'
+import { connect } from 'react-redux';
+ function Home(props){
+  const {isShowSurveyForm,dispatch}=props;
 
-export default function Home(){
+   
+  useEffect(()=>{
+    async function fetchData(){
+      const response=await loadSurveyList();
+      if(response.success && response.data.surveyList[0]){
+       dispatch(addSurveyList(response.data.surveyList));
+      }
+    }
+    fetchData();
+
+  },);
+
+  
   return (
     <div className="Home">
-      <h1>Home</h1>
+      {
+        isShowSurveyForm &&
+        <SurveyForm dispatch={dispatch}/>
+      }
+      <SurveyList/>
     </div>
   );
 
 }
+
+//==============connect() to get/subscribe store/state================
+function mapStateToProps(state){
+  return{
+    isShowSurveyForm:state.surveyReducer.isShowSurveyForm,
+  }
+}
+const connectedHomeComponent=connect(mapStateToProps)(Home);
+export default connectedHomeComponent;

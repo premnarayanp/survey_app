@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {logout} from'../actions/authActionCreator';
+import {isShowSurveyForm} from'../actions/surveyActionCreator';
 import '../styles/navbar.css'
 import { connect } from 'react-redux';
 
@@ -11,12 +12,18 @@ import { connect } from 'react-redux';
     dispatch(logout());
   }
 
+  const handleCreateSurvey=()=>{
+    dispatch(isShowSurveyForm(true));
+  }
+
   return (
     auth.user?
       <div className="nav">
         <Link to="/">
            <button className='menuButton'>Home</button>
         </Link>
+
+        <button className='menuButton' onClick={handleCreateSurvey}>Create Survey</button>
 
         <button className='menuButton' onClick={logoutFromDevice}>Log out</button>
 

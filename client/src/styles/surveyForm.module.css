@@ -1,10 +1,17 @@
-.loginSignupHeader {
+.surveyFormContainer {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    width: 100%;
+}
+
+.surveyFormHeader {
     font-weight: 600;
     font-size: 30px;
     color: #ef7917;
 }
 
-.loginForm {
+.surveyForm {
     background-color: #fff;
     padding: 20px;
     box-sizing: border-box;
@@ -15,9 +22,27 @@
     width: 30%;
     min-width: 300px;
     margin: auto;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.closeFormBtn {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin: 0;
+    margin-left: 0;
+    overflow: hidden;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    /* background-color: rgb(227, 195, 145); */
+}
+
+.closeFormBtn img {
+    height: 100%;
+    width: 100%;
 }
 
 .field {

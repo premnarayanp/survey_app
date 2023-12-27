@@ -61,3 +61,17 @@ export const signUp = async (name, email, password, confirmPassword) => {
     body: { name, email, password, confirmPassword: confirmPassword },
   });
 };
+
+//=======================API for Survey===================
+export const createSurvey = async (name, email, phoneNumber, gender,nationality,address,message) => {
+  return customFetch(API_URLS.createSurvey(), {
+    method: 'POST',
+    body: { name, email, phoneNumber, gender,nationality, address,message},
+  });
+};
+
+export const loadSurveyList = async () => {
+  return customFetch(API_URLS.surveyList(), {
+    method: 'GET',
+  });
+};

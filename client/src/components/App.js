@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { 
   Home, 
   Login, 
-  Signup, 
+  Signup,
 } from '../pages/index';
 
 function App(props){
@@ -29,6 +29,7 @@ function App(props){
     <div className="App">
       <Navbar />
       <Routes>
+      
         <Route path="/" element={ <PrivateRoute> <Home /> </PrivateRoute>}/>
         <Route exact path="/users/login" element={<Login auth={auth} dispatch={dispatch} />} />
         <Route exact path="/users/signup" element={<Signup auth={auth} dispatch={dispatch} />} /> 

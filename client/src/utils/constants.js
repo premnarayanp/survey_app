@@ -4,7 +4,8 @@ export const API_URLS = {
   //API URL for User
   login: () => `${API_ROOT}/users/login`,
   signup: () => `${API_ROOT}/users/signup`,
-
+  createSurvey: () => `${API_ROOT}/survey/create`,
+  surveyList: () => `${API_ROOT}/survey/survey_list`,
 
 };
 
